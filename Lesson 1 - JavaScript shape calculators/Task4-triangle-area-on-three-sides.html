@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main {
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+    
+    input {
+        margin: 0;
+        margin-top: 10em;
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        color: white;
+        background-color: black;
+    }
+</style>
+
+<body>
+    <!-- Сделайте калькулятор, который будет находить площадь треугольника по трем сторонам. -->
+    <div class="main">
+        <input type="text" class="aside" value="a side .px">
+        <input type="text" class="bside" value="b side .px">
+        <input type="text" class="cside" value="c side .px">
+        <button>PUSH THE TEMPO</button>
+    </div>
+    <p></p>
+
+    <script>
+        let body = document.querySelector('body');
+        let main = document.querySelector('main');
+        let inputs = document.querySelectorAll('input');
+        let button = document.querySelector('button');
+        let p = document.querySelector('p');
+
+        button.addEventListener('click', function() {
+            let res = 0;
+            for (let elem of inputs) {
+                res = res + Number(elem.value);
+            };
+            let perimeter = res / 2;
+
+            let arr = [];
+            for (let i = 0; i < inputs.length; i++) {
+                arr.push(perimeter - Number(inputs[i].value));
+            };
+            arr.push(perimeter);
+
+            let result = 1;
+            for (let i = 0; i < arr.length; i++) {
+                result *= arr[i];
+            };
+
+            let sTriangle = Math.sqrt(result);
+
+            let traingle = document.createElement('div');
+            traingle.style.width = 0;
+            traingle.style.height = 0;
+            traingle.style.borderWidth = `${inputs[0].value}px ${inputs[1].value}px ${inputs[2].value}px`;
+            traingle.style.borderColor = 'transparent transparent red transparent';
+            traingle.style.borderStyle = 'solid';
+            traingle.style.marginLeft = '50%';
+
+            p.textContent = `S triangle = ${Math.floor(sTriangle)}`;
+            p.style.marginLeft = '50%';
+            body.appendChild(traingle);
+        });
+    </script>
+</body>
+
+</html>

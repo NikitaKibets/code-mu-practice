@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main {
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+    
+    input {
+        margin: 0;
+        margin-top: 10em;
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        color: white;
+        background-color: black;
+    }
+</style>
+
+<body>
+    <!-- Сделайте калькулятор, который будет находить площадь и периметр прямоугольника. -->
+    <div class="main">
+        <input type="text" class="leng" value="длина.px">
+        <input type="text" class="wid" value="ширина.px">
+    </div>
+
+    <script>
+        let body = document.querySelector('body');
+        let main = document.querySelector('.main');
+        let wid = document.querySelector('.wid');
+        let leng = document.querySelector('.leng');
+        wid.addEventListener('change', function() {
+            let rectangle = document.createElement('div');
+            rectangle.style.backgroundColor = 'yellow';
+            rectangle.style.width = `${leng.value}px`;
+            rectangle.style.height = `${wid.value}px`;
+            rectangle.style.marginTop = '5em';
+            rectangle.style.marginLeft = '50%';
+            rectangle.style.border = 'solid 1px black';
+            rectangle.textContent = `S = ${wid.value * leng.value}px ; P = ${(Number(wid.value) + Number(leng.value)) * 2}px`;
+            body.appendChild(rectangle);
+        });
+    </script>
+</body>
+
+</html>

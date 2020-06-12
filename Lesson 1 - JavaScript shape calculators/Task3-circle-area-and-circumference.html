@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main {
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+    
+    input {
+        margin: 0;
+        margin-top: 10em;
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        color: white;
+        background-color: black;
+    }
+</style>
+
+<body>
+    <!-- Сделайте калькулятор, который будет находить площадь круга и длину окружности. -->
+    <div class="main">
+        <input type="text" value="радиус.px">
+    </div>
+    <p style="margin-left: 50%;"></p>
+    <script>
+        let body = document.querySelector('body');
+        let main = document.querySelector('main');
+        let inp = document.querySelector('input');
+        let p = document.querySelector('p');
+
+        inp.addEventListener('change', function() {
+            let circle = document.createElement('div');
+            circle.style.backgroundColor = 'yellow';
+            circle.style.border = '1px solid black';
+            circle.style.borderRadius = '50%';
+            circle.style.width = `${inp.value}px`;
+            circle.style.height = `${inp.value}px`;
+            circle.style.marginLeft = '50%';
+            circle.style.marginTop = '5em';
+            p.textContent = `S = ${Math.floor(Math.pow(inp.value,2) * Math.PI)}px ; P = ${Math.floor(inp.value * Math.PI)}px`;
+            body.appendChild(circle);
+        });
+    </script>
+</body>
+
+</html>

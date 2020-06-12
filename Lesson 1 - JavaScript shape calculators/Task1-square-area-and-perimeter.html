@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main {
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+    
+    input {
+        margin-left: 50%;
+        margin-right: 50%;
+        margin-top: 10em;
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        color: white;
+        background-color: black;
+    }
+</style>
+
+<body>
+    <!-- Сделайте калькулятор, который будет находить площадь и периметр квадрата. -->
+    <div class="main">
+        <input type="text" value="px">
+    </div>
+
+    <script>
+        let body = document.querySelector('body');
+        let maindiv = document.querySelector('.main');
+        let inp = document.querySelector('input');
+        inp.addEventListener('change', function() {
+            let newdiv = document.createElement('div');
+            newdiv.style.backgroundColor = 'yellow';
+            newdiv.style.border = '1px solid black';
+            newdiv.style.height = `${inp.value}px`;
+            newdiv.style.width = `${inp.value}px`;
+            newdiv.style.marginLeft = '50%';
+            newdiv.style.marginRight = '50%';
+            newdiv.style.marginTop = '5em';
+            newdiv.style.textAlign = 'center';
+            newdiv.textContent = `S = ${inp.value * inp.value}px; P = ${(Number(inp.value) + Number(inp.value)) * 2}px`;
+            body.appendChild(newdiv);
+
+        });
+    </script>
+</body>
+
+</html>
